@@ -2,6 +2,14 @@
 date_default_timezone_set("Asia/Taipei");
 session_start();
 
+$level=[
+    1=>'普遍級',
+    2=>'輔導級',
+    3=>'保護級',
+    4=>'限制級'
+];
+
+
 class DB
 {
 
@@ -37,7 +45,7 @@ class DB
             $sql = $sql . $arg[1];
         }
 
-        //echo $sql;
+        // echo $sql;
         return $this->pdo->query($sql)->fetchAll();
     }
 
@@ -140,4 +148,7 @@ function to($url)
 {
     header("location:" . $url);
 }
+
+
+$Ord=new DB("ord");
 
